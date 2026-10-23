@@ -24,7 +24,8 @@ void RegisterUserServiceHooks() {
     SHADNET_HOOK16(Libraries::System::UserService, sceUserServiceInitialize);
     SHADNET_HOOK16(Libraries::System::UserService, sceUserServiceInitialize2);
     SHADNET_HOOK(Libraries::System::UserService, sceUserServiceTerminate);
-    SHADNET_HOOK(Libraries::System::UserService, sceUserServiceGetUserName);
+    // Disabled: Detour stub does not relocate RIP-relative bytes; real call crashed for non-shadNet users.
+    // SHADNET_HOOK(Libraries::System::UserService, sceUserServiceGetUserName);
     SHADNET_HOOK(Libraries::System::UserService, sceUserServiceGetEvent);
 }
 
